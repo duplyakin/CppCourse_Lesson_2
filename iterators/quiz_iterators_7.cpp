@@ -25,6 +25,12 @@ std::istream& operator >> (std::istream& in, Node& node) {
   return in;
 }
 
+std::ostream& operator << (std::ostream& out, Node& node) {
+
+  out << "{" << node.key << ", " << node.value << "} ";
+  return out;
+}
+
 
 /* Array */
 // ----------------------------------------------------------------------------
@@ -80,7 +86,8 @@ int main(int argc, char** argv) {
   Оставил здесь так как и было. Вывод осуществляется в объект std::cout - то есть в std::out 
   */
   for (typename Array<Node>::iterator it = node_array.begin(); it != node_array.end(); ++it) {
-    std::cout << "{" << it->key << ", " << it->value << "} ";
+    //std::cout << "{" << it->key << ", " << it->value << "} ";
+    std::cout << *it << " ";
   }
   printf("\n");
 
